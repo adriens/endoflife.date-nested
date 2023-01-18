@@ -12,7 +12,7 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 
 # 🛤️ Roadmap
 
-- [x] Neo4j
-- [x] PostgreSQL
+- [x] [Neo4j](https://neo4j.com/)
+- [x] [PostgreSQL](https://www.postgresql.org/)
 - [ ] MongoDB
 - [ ] OpenSearch
