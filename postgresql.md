@@ -140,6 +140,7 @@ where cycle <= 10;
 Then enjoy the full table:
 
 ```sql
+\! clear
 select * from psql_eol;
 
 ```
