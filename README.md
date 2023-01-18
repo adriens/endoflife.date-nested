@@ -1,4 +1,4 @@
-# :question: About
+# ➰ About
 
 `endoflife.date-nested` is a collection of resources to load Product EoL in itself,
 thanks to [`endoflife.date`](https://endoflife.date/).
