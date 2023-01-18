@@ -16,3 +16,4 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 - [x] [PostgreSQL](https://www.postgresql.org/)
 - [ ] MongoDB
 - [ ] OpenSearch
+- [ ] Kafka
