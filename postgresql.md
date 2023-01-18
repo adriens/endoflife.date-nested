@@ -10,6 +10,7 @@ to load [`endoflife.date` PostgreSQL data](https://endoflife.date/postgresql) in
 ```shell
 sudo apt-get update
 sudo apt-get -y install postgresql-client jq httpie
+
 ```
 
 # ⬇️ Get the data
