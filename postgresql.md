@@ -83,6 +83,7 @@ select * from psql_eol;
 ```sql
 SELECT version();
 SELECT current_setting('server_version_num');
+
 ```
 
 Add a dedicated column:
@@ -90,6 +91,7 @@ Add a dedicated column:
 ```sql
 alter table psql_eol 
 ADD COLUMN server_version_num integer;
+
 ```
 
 ... then feed it:
@@ -102,12 +104,14 @@ where cycle >= 10;
 update psql_eol
 set server_version_num = cast(substring(latest, 1,1) || lpad(substring(latest, 3,1), 2, '0') || lpad(substring(latest, 5,2), 2, '0') as integer)
 where cycle < 10;
+
 ```
 
 Finally enjoy the newly created `server_version_num` column:
 
 ```sql
 select * from psql_eol;
+
 ```
 
 ## 🔗 Add some urls
@@ -117,6 +121,7 @@ First, add a dedicated column :
 ```sql
 alter table psql_eol
 add COLUMN release_url varchar;
+
 ```
 
 Then feed it:
@@ -129,12 +134,14 @@ where cycle > 10;
 update psql_eol
 set release_url = 'https://www.postgresql.org/docs/' || cycle || '/index.html'
 where cycle <= 10;
+
 ```
 
 Then enjoy the full table:
 
 ```sql
 select * from psql_eol;
+
 ```
 
 ## 👮 Version check
@@ -146,4 +153,5 @@ cycle, therefore **we should have one line** 🤞:
 select * from psql_eol
 where
 server_version_num = cast(current_setting('server_version_num') as integer);
+
 ```
