@@ -65,6 +65,7 @@ Load the data:
 
 ```sql
 COPY psql_eol FROM '/tmp/psql-eol.csv' DELIMITER ',' CSV ;
+
 ```
 
 .. and check it has been loaded:
@@ -72,6 +73,7 @@ COPY psql_eol FROM '/tmp/psql-eol.csv' DELIMITER ',' CSV ;
 ```sql
 \! clear
 select * from psql_eol;
+
 ```
 
 # 🕹️ Play wth versions
