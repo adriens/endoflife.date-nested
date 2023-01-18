@@ -23,6 +23,7 @@ http https://endoflife.date/api/postgresql.json |\
     jq -r '.[] | [.cycle, .eol, .latest, .latestReleaseDate, .lts, .releaseDate] | @csv' \
     > /tmp/psql-eol.csv
 cat /tmp/psql-eol.csv
+
 ```
 
 Then get and run a Postgres instance:
@@ -30,6 +31,7 @@ Then get and run a Postgres instance:
 ```shell
 sudo docker pull postgres:15.1
 sudo docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v /tmp:/tmp postgres:15.1
+
 ```
 
 Then create and connect to the newly created database:
