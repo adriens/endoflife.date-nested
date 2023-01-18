@@ -58,6 +58,7 @@ CREATE TABLE psql_eol (
 );
 
 COMMENT ON TABLE psql_eol IS 'This table contains PostgreSQL EoLs. See https://endoflife.date/postgresql for input data.';
+
 ```
 
 Load the data:
