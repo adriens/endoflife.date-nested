@@ -2,7 +2,7 @@
 
 `endoflife.date-nested` is a collection of resources to load Product EoL in itself.
 
-# :nerd: Why
+# 🤓 Why
 
 - For fun
 - To learn new databases
