@@ -15,4 +15,4 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 - [x] Neo4j
 - [x] PostgreSQL
 - [ ] MongoDB
-- [ ] OopenSearch
+- [ ] OpenSearch
