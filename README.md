@@ -8,7 +8,7 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 - For fun
 - To learn new databases
 - To learn efficient patterns around API data loading
-- To manage technical debt in various fun ways
+- To manage technical debt in various fun (and hopefuly useful) ways
 
 # 🛤️ Roadmap
 
