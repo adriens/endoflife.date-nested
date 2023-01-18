@@ -8,3 +8,10 @@
 - To learn new databases
 - To learn efficient patterns around API data loading
 - To manage technical debt in various fun ways
+
+# 🛤️ Roadmap
+
+- [x] Neo4j
+- [x] PostgreSQL
+- [ ] MongoDB
+- [ ] OopenSearch
