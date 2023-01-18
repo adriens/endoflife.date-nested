@@ -41,6 +41,7 @@ clear
 export PGPASSWORD=docker
 psql -h localhost -U postgres -d postgres -c "create database eol"
 psql -h localhost -U postgres eol
+
 ```
 
 Now, create the table:
