@@ -156,3 +156,28 @@ where
 server_version_num = cast(current_setting('server_version_num') as integer);
 
 ```
+## 🌈 Some fun with `lolcat` 😹
+
+First, install `lolcat` : 
+
+```shell
+sudo snap install lolcat
+```
+
+Then have some fun:
+
+```shell
+clear
+psql -h localhost -U postgres eol -c "select * from psql_eol;" |\
+    lolcat
+
+ ```
+ 
+ ... than put some animation:
+ 
+ ```shell
+ clear
+psql -h localhost -U postgres eol -c "select * from psql_eol;" |\
+    lolcat --animate
+
+ ```
