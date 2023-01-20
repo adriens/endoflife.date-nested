@@ -17,3 +17,4 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 - [ ] MongoDB
 - [ ] OpenSearch
 - [ ] Kafka
+- [ ] Gomplate
