@@ -13,7 +13,7 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 # 🛤️ Roadmap
 
 - [x] [Neo4j](https://neo4j.com/)
-- [x] [PostgreSQL](https://www.postgresql.org/)
+- [ ] [PostgreSQL](https://www.postgresql.org/) WIP
 - [ ] MongoDB
 - [ ] OpenSearch
 - [ ] Kafka
