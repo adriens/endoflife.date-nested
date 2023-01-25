@@ -12,8 +12,8 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 
 # 🛤️ Roadmap
 
-- [x] [Neo4j](https://neo4j.com/)
-- [ ] [PostgreSQL](https://www.postgresql.org/) WIP
+- [x] [Neo4j](https://endoflife.date/neo4j)
+- [x] [PostgreSQL](https://endoflife.date/postgresql)
 - [ ] Sqlite
 - [ ] MongoDB
 - [ ] OpenSearch
