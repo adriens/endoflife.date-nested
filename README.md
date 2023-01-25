@@ -19,3 +19,9 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 - [ ] OpenSearch
 - [ ] Kafka
 - [ ] Gomplate
+
+# 📑 More about `endoflife.date`
+
+- 🐦 [`@endoflife_date`](https://twitter.com/endoflife_date)
+- 🔗 Tracking support information for every product at http://endoflife.date
+- 📝 [Dedicated `endoflife.date` Series' Articles on `DEV.to`](https://dev.to/adriens/series/21232)
