@@ -14,6 +14,7 @@ thanks to [`endoflife.date`](https://endoflife.date/).
 
 - [x] [Neo4j](https://neo4j.com/)
 - [ ] [PostgreSQL](https://www.postgresql.org/) WIP
+- [ ] Sqlite
 - [ ] MongoDB
 - [ ] OpenSearch
 - [ ] Kafka
