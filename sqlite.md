@@ -44,7 +44,8 @@ echo "products" > products.csv
 cat _products.csv >> products.csv
 
 git clone https://github.com/adriens/endoflife.date-nested.git
-cat /tmp/endoflife.date-nested/data/categories.csv```
+cat /tmp/endoflife.date-nested/data/categories.csv`
+
 ```
 
 # Create tables
