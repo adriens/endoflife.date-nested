@@ -241,3 +241,8 @@ pip install duckdb==0.6.1
 
 
 https://duckdb.org/docs/guides/import/query_sqlite.html
+
+# Kaggle
+
+- https://github.com/kaggle/kaggle-api
+- https://www.kaggle.com/
