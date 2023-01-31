@@ -47,7 +47,7 @@ cat /tmp/endoflife.date-nested/data/categories.csv`
 
 ```
 
-# 🚀 Create tables and load datas
+# 🚀 Create tables and load `csv` datas
 
 ```shell
 clear
@@ -209,6 +209,10 @@ alter table eols
 update eols
     set release_date_year_month = strftime('%Y-%m', release_date);
     
+-- add some editor related stuff
+alter table eols
+    add editor;
+
 -- some reporting on metadas
 .tables
 .schema
