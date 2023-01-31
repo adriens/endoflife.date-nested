@@ -107,7 +107,7 @@ select * from product_categories limit 20;
 -- See if we have eol for sqlite
 select * from eols
 where
-product='sqlite';
+    product='sqlite';
 
 -- Add a metadata table
 create table metadatas(
