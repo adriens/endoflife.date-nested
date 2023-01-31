@@ -11,7 +11,6 @@ to load [`endoflife.date` data](https://endoflife.date/) into an ease to use reg
 sudo apt-get update
 sudo apt install -y jq httpie sqlite3
 
-sqlite3 --version
 ```
 
 # ⬇️ Get the data
@@ -48,16 +47,13 @@ cat /tmp/endoflife.date-nested/data/categories.csv`
 
 ```
 
-# Create tables
+# 🗄️ Create tables
 
 ```shell
-## https://sqlite.org/cli.html
 clear
 cd
 
-sudo apt install sqlite3
-sqlite3 --version
-
+# Now create tables...
 sqlite3 endoflife.date.sqlite
 
 DROP TABLE IF EXISTS products; 
@@ -95,29 +91,28 @@ create table product_categories(
     FOREIGN KEY (category) REFERENCES categories(category)
 );
 
+-- Load data from csv files
 .mode csv
 .import --csv --skip 1 /tmp/products.csv products
 .import --csv --skip 1 /tmp/eols.csv eols
 .import --csv --skip 1 /tmp/endoflife.date-nested/data/categories.csv categories
 .import --csv --skip 1 /tmp/endoflife.date-nested/data/product_categories.csv product_categories
 
+-- Take a glance at datas
 select * from eols limit 20;
 select * from products limit 20;
 select * from categories limit 20;
 select * from product_categories limit 20;
 
+-- See if we have eol for sqlite
 select * from eols
 where
 product='sqlite';
 
-
-
-
-
+-- Add a metadata table
 create table metadatas(
     key text not null PRIMARY KEY,
     value text not null
-
 );
 
 insert into metadatas values ("about", "This is an sqlite export made out of calls to endoflife.date's API (https://endoflife.date/docs/api)." );
@@ -128,74 +123,93 @@ insert into metadatas values ("www_author_devto", "https://dev.to/adriens");
 insert into metadatas values ("www_author_github", "https://github.com/adriens");
 insert into metadatas values ("www_endoflife.date", "https://endoflife.date/");
 
+select * from metadatas;
 
+-- Compute and some datas to eols table to help better analysis
+
+-- enrich eols.eol
 alter table eols
-add eol_date; 
+    add eol_date text; 
 
 update eols
-set eol_date = eol
-where eol not in ("true", "false"); 
+    set eol_date = eol
+where
+    eol not in ("true", "false"); 
 
 alter table eols
-add eol_boolean;
+    add eol_boolean;
 
 update eols
-set eol_boolean = eol
-where eol in ("true", "false"); 
+    set eol_boolean = eol
+where
+    eol in ("true", "false"); 
 
+-- enrich eols.lts
+alter table eols
+    add lts_date;
 
-
-
+update eols
+    set lts_date = lts
+where
+    lts not in ("true", "false"); 
 
 alter table eols
-add lts_date;
+    add lts_boolean;
 
 update eols
-set lts_date = lts
-where lts not in ("true", "false"); 
+    set lts_boolean = lts
+where
+    lts in ("true", "false");
+
+-- enrich eols.support
+alter table eols
+    add support_date;
+
+update eols
+    set support_date = support
+where
+    support not in ("true", "false"); 
 
 alter table eols
-add lts_boolean;
+    add support_boolean;
 
 update eols
-set lts_boolean = lts
-where lts in ("true", "false");
+    set support_boolean = support
+where
+    support in ("true", "false");
 
+-- enrich eols.extended_suport
+alter table eols
+    add extended_support_date;
 
-
+update eols
+    set extended_support_date = extended_support
+where
+    extended_support not in ("true", "false"); 
 
 alter table eols
-add support_date;
+    add extended_support_boolean;
 
 update eols
-set support_date = support
-where support not in ("true", "false"); 
+    set extended_support_boolean = extended_support
+where
+    extended_support in ("true", "false");
+
+-- enrich with release_date_year
+alter table eols
+    add release_date_year;
+
+update eols
+    set release_date_year = strftime('%Y', release_date); 
 
 alter table eols
-add support_boolean;
+    add release_date_year_month;
+
 
 update eols
-set support_boolean = support
-where support in ("true", "false");
-
-alter table eols
-add extended_support_date;
-
-update eols
-set extended_support_date = extended_support
-where extended_support not in ("true", "false"); 
-
-alter table eols
-add extended_support_boolean;
-
-update eols
-set extended_support_boolean = extended_support
-where extended_support in ("true", "false");
-
-
-
--- extendedSupport
-
+    set release_date_year_month = strftime('%Y-%m', release_date);
+    
+-- some reporting on metadas
 .tables
 .schema
 
@@ -204,23 +218,24 @@ where extended_support in ("true", "false");
 pragma table_info('eols');
 pragma table_info('products');
 
-
-# add strongly typed columns
-
-
-
+-- self-test database before leaving session
 .selftest
+
+-- quit
 .exit
 
+# Check resulting database file
 ls -ltr
-# prepare archives for later use
-tar cvzf endoflife.date.csv.tar.gz eols.csv products.csv
 file endoflife.date.sqlite
 
+# prepare archives for later use
+# tar cvzf endoflife.date.csv.tar.gz eols.csv products.csv
+
+
 # litecli https://www.dbcli.com/
-https://litecli.com/features/
-$ pip install -U litecli
-litecli endoflife.date.sqlite
+# https://litecli.com/features/
+# pip install -U litecli
+# litecli endoflife.date.sqlite
 
 
 
@@ -355,10 +370,6 @@ update eols
 set eol_boolean = eol
 where eol in ("true", "false"); 
 
-
-
-
-
 alter table eols
 add lts_date;
 
@@ -373,11 +384,8 @@ update eols
 set lts_boolean = lts
 where lts in ("true", "false");
 
-
-
-
 alter table eols
-add support_date;
+    add support_date;
 
 update eols
 set support_date = support
@@ -390,6 +398,7 @@ update eols
 set support_boolean = support
 where support in ("true", "false");
 
+alter table eols
 .tables
 .schema
 
@@ -400,8 +409,6 @@ pragma table_info('products');
 
 
 # add strongly typed columns
-
-
 
 .selftest
 .exit
