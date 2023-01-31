@@ -27,7 +27,7 @@ http https://endoflife.date/api/all.json |\
     > _products.csv
 wc -l _products.csv
 
-# read products and load eols
+# ⏳ read products and load eols
 echo "product,cycle,release_date,eol,latest,link,lts,support,discontinued, extended_support" > eols.csv
 while read -r product
     do
