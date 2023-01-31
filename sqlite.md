@@ -223,32 +223,21 @@ pragma table_info('products');
 
 -- quit
 .exit
+```
 
+Now, let's have a look at the resulting file
+
+```shell
 # Check resulting database file
 ls -ltr
 file endoflife.date.sqlite
-
 # prepare archives for later use
 # tar cvzf endoflife.date.csv.tar.gz eols.csv products.csv
-
-
-# litecli https://www.dbcli.com/
-# https://litecli.com/features/
-# pip install -U litecli
-# litecli endoflife.date.sqlite
-
-https://duckdb.org/docs/guides/import/query_sqlite.html
 ```
 
 # 🤓 Fun with `litecli`
 
 🔖 [`litecli`](https://litecli.com/features/)
-
-
-```shell
-# check file
-file endoflife.date.sqlite
-```
 
 ```shell
 # Install litecli
