@@ -72,7 +72,7 @@ create table eols(
     lts text,
     support text,
     discontinued text,
-    extended_support text
+    extended_support text,
     CONSTRAINT PK_product_cycle PRIMARY KEY (product,cycle),
     FOREIGN KEY (product) REFERENCES products(product)
 );
