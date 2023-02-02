@@ -254,6 +254,11 @@ litecli endoflife.date.sqlite
 
 😎 Now, just enjoy auto-completion.
 
+# 🗺️ Schema visualization
+
+https://dev.to/sualeh/how-to-visualize-your-sqlite-database-with-one-command-and-nothing-to-install-1f4m
+
+
 # 📊 Interact w. Kaggle
 
 - https://github.com/kaggle/kaggle-api
