@@ -56,6 +56,10 @@ cd
 # Now create tables...
 sqlite3 endoflife.date.sqlite
 
+```
+
+```sql
+
 DROP TABLE IF EXISTS products; 
 create table products(
     product text primary key
@@ -91,12 +95,21 @@ create table product_categories(
     FOREIGN KEY (category) REFERENCES categories(category)
 );
 
+```
+
+```
 -- Load data from csv files
 .mode csv
+
+```
+
+```
 .import --csv --skip 1 /tmp/products.csv products
 .import --csv --skip 1 /tmp/eols.csv eols
 .import --csv --skip 1 /tmp/endoflife.date-nested/data/categories.csv categories
 .import --csv --skip 1 /tmp/endoflife.date-nested/data/product_categories.csv product_categories
+```
+
 
 -- Take a glance at datas
 select * from eols limit 20;
