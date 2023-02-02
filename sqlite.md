@@ -285,8 +285,30 @@ litecli endoflife.date.sqlite
 
 # 🗺️ Schema visualization
 
-https://dev.to/sualeh/how-to-visualize-your-sqlite-database-with-one-command-and-nothing-to-install-1f4m
+Now, let's [Visualize Your SQLite Database (with One Command)](https://dev.to/sualeh/how-to-visualize-your-sqlite-database-with-one-command-and-nothing-to-install-1f4m) : 
 
+```shell
+docker run \
+--mount type=bind,source="$(pwd)",target=/home/schcrwlr \
+--rm -it \
+schemacrawler/schemacrawler \
+/opt/schemacrawler/bin/schemacrawler.sh \
+--server=sqlite \
+--database=endoflife.date.sqlite \
+--info-level=standard \
+--command=schema \
+--output-file=endoflife.date.png
+
+file endoflife.date.png
+
+```
+
+Finally enjoy the resulting diagram:
+
+```shell
+xdg-open endoflife.date.png
+
+```
 
 # 📊 Interact w. Kaggle
 
