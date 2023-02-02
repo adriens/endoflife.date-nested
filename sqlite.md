@@ -98,7 +98,6 @@ create table product_categories(
 ```
 
 ```
--- Load data from csv files
 .mode csv
 
 ```
