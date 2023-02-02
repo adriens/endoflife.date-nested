@@ -123,6 +123,7 @@ create table product_categories(
 ```
 
 
+```sql
 -- Take a glance at datas
 select * from eols limit 20;
 select * from products limit 20;
