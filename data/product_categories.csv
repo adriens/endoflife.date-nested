@@ -6,7 +6,7 @@ amazon-linux,os
 android,os
 angular,framework
 ansible,app
-ansible-core,
+ansible-core,framework
 antix,os
 apache,server-app
 apache-airflow,framework
