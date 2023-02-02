@@ -15,7 +15,7 @@ apache-cassandra,db
 apache-groovy,lang
 api-platform,framework
 azure-devops-server,
-azure-kubernetes-service,
+azure-kubernetes-service,service
 beats,server-app
 blender,app
 bootstrap,framework
