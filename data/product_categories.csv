@@ -14,7 +14,7 @@ apache-camel,framework
 apache-cassandra,db
 apache-groovy,lang
 api-platform,framework
-azure-devops-server,
+azure-devops-server,server-app
 azure-kubernetes-service,service
 beats,server-app
 blender,app
