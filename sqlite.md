@@ -86,7 +86,7 @@ create table categories (
 drop table if exists product_categories;
 create table product_categories(
     product text primary key,
-    category text,
+    category text not null,
     FOREIGN KEY (product) REFERENCES products(product),
     FOREIGN KEY (category) REFERENCES categories(category)
 );
