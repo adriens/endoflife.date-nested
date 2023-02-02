@@ -104,10 +104,23 @@ create table product_categories(
 
 ```
 .import --csv --skip 1 /tmp/products.csv products
-.import --csv --skip 1 /tmp/eols.csv eols
-.import --csv --skip 1 /tmp/endoflife.date-nested/data/categories.csv categories
-.import --csv --skip 1 /tmp/endoflife.date-nested/data/product_categories.csv product_categories
+
 ```
+
+```
+.import --csv --skip 1 /tmp/eols.csv eols
+
+```
+
+```
+.import --csv --skip 1 /tmp/endoflife.date-nested/data/categories.csv categories
+
+```
+
+```
+.import --csv --skip 1 /tmp/endoflife.date-nested/data/product_categories.csv product_categories
+
+``````
 
 
 -- Take a glance at datas
