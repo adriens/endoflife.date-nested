@@ -120,7 +120,7 @@ create table product_categories(
 ```
 .import --csv --skip 1 /tmp/endoflife.date-nested/data/product_categories.csv product_categories
 
-``````
+```
 
 
 -- Take a glance at datas
