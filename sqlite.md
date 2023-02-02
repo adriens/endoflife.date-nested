@@ -234,10 +234,10 @@ alter table eols
 
 update eols
     set release_date_year_month = strftime('%Y-%m', release_date);
-    
--- add some editor related stuff
--- alter table eols add editor;
+```
 
+
+```
 -- some reporting on metadas
 .tables
 .schema
@@ -249,8 +249,11 @@ pragma table_info('products');
 
 -- self-test database before leaving session
 .selftest
+```
 
--- quit
+Finally exit `sqlite` : 
+
+```shell
 .exit
 ```
 
