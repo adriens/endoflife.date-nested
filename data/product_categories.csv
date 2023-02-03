@@ -153,7 +153,7 @@ rails,framework
 raspberry-pi,device
 react,framework
 readynas,device
-redhat-satellite,
+redhat-satellite,server-app
 redis,db
 redmine,server-app
 rhel,os
