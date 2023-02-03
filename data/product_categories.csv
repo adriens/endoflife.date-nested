@@ -177,7 +177,7 @@ tails,os
 tarantool,db
 telegraf,server-app
 terraform,app
-tomcat,erver-app
+tomcat,server-app
 twig,framework
 typo3,server-app
 ubuntu,os
