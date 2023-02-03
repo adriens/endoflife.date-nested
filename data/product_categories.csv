@@ -149,7 +149,7 @@ python,lang
 qt,framework
 quarkus-framework,framework
 rabbitmq,dbserver-app
-rails,rubyonrails
+rails,framework
 raspberry-pi,device
 react,framework
 readynas,device
