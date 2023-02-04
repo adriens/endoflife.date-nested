@@ -17,6 +17,7 @@ You can have a global overview by having a loog at the dedicated [`endoflife.dat
 - [x] [Neo4j](https://dev.to/optnc/browse-neo4j-eol-versions-inside-neo4j-auradb-1ncb)
 - [x] [PostgreSQL](https://dev.to/adriens/postgresql-eols-as-a-table-15hb)
 - [ ] Sqlite
+- [ ] DuckDb
 - [ ] MongoDB
 - [ ] OpenSearch
 - [ ] Kafka
