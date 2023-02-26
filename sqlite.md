@@ -495,6 +495,19 @@ pqrs cat data/cities.parquet
 ```
 # 📊 Interact w. Kaggle
 
+[Kaggle](https://www.kaggle.com/) has an [`API`](https://www.kaggle.com/docs/api), but
+also a dedicated [`cli`](https://github.com/Kaggle/kaggle-api#installation) that makes it
+very easy to interact (search & download datasets,...).
+
+First install it:
+
+```shell
+pip install kaggle
+```
+
+... properly seup [API credentials](https://github.com/Kaggle/kaggle-api#api-credentials) and
+you're ready:
+
 ```shell
 kaggle datasets list -s endoflife
 ```
