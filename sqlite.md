@@ -304,7 +304,16 @@ pip install -U litecli
 litecli endoflife.date.sqlite
 ```
 
-😎 Now, just enjoy auto-completion.
+😎 Now, just enjoy auto-completion... or simply run a firt report:
+
+```sql
+select category,
+    count(*)
+from product_categories
+    group by category
+    having count(*) > 10
+    order by count(*) desc;
+```
 
 # 🗺️ Schema visualization
 
@@ -333,7 +342,172 @@ xdg-open endoflife.date.png
 
 ```
 
+# 🦆 Load into `DuckDB`
+
+## About `DuckDB`
+
+_"`DuckDB` is a column-oriented embeddable OLAP database"_ that has a lot of cool loading features.
+
+Let's see what kind of cool things we can achieve with it around `sqLite`.
+
+To install it, just:
+
+```shell
+brew install duckdb
+
+```
+
+Then:
+
+``shell
+duckdb --version
+duckdb --help
+
+```
+
+Finally open the `DuckDB` shell:
+
+```shell
+duckdb endoflide.data.duckdb
+
+```
+
+## 🕹️ Playin' with 🦆 and 🪶
+
+Load `sqlite` extension into `DuckDB`... and **mount its tables into `DuckDB`**:
+
+```
+INSTALL sqlite;
+LOAD sqlite;
+CALL sqlite_attach('endoflife.date.sqlite');
+
+```
+
+Now show `sqLite` tables from within `DuckDB`:
+
+```
+Show tables;
+DESCRIBE eols;
+
+```
+
+## 📊 Make reports
+
+Now, let's run queries in `DuckDB`:
+
+```sql
+SELECT category as "Cat.",
+    count(*) "Count."
+from product_categories
+    group by category
+order by count(*) desc;
+
+```
+
+```sql
+select product, count(*)
+from eols
+group by product
+order by count(*) desc
+limit 20;
+
+```
+
+```sql
+select product as "Product",
+    count(*) as "Nb. cycles"
+from eols
+group by product
+having count(*) > 15
+order by count(*) desc;
+
+```
+
+Some reporting on mobile devices:
+
+```sql
+select product as "Product",
+    count(*) as "Nb. Cycles",--cycle,
+    max(release_date_year_month) as "Latest Release"
+from eols
+where
+    product in ('nokia',
+        'samsung-mobile',
+        'iphone',
+        'pixel',
+        'fairphone')
+group by product
+order by count(*) desc;
+
+```
+
+## 🪶 Export to Apache `.parquet` file
+
+> "Apache Parquet is an open source, column-oriented data file format designed for efficient
+> data storage and retrieval. It provides efficient data compression and encoding schemes
+> with enhanced performance to handle complex data in bulk."
+
+S, just export the mounted table into a `.parquet` file : 
+
+```
+COPY eols TO 'endoflife.date_eols.parquet' (FORMAT PARQUET);
+exit
+
+```
+
+Then check what the file looks like:
+
+```
+file endoflife_eols.parquet
+
+```
+
+Now, we can inspect it with [`parquet-tools`](https://github.com/ktrueda/parquet-tools) :
+
+```shell
+pip install parquet-tools
+
+```
+
+Finally inspect the `parquet` file:
+
+```shell
+parquet-tools inspect endoflife.date_eols.parquet
+parquet-tools rowcount endoflife.date_eols.parquet
+parquet-tools show endoflife.date_eols.parquet
+```
+
+We can also play with [`pqrs`](https://github.com/manojkarthick/pqrs) : 
+
+```shell
+brew install manojkarthick/tap/pqrs
+```
+
+Then:
+
+```shell
+pqrs --version
+pqrs --help
+```
+
+```shell
+pqrs cat data/cities.parquet
+```
 # 📊 Interact w. Kaggle
 
-- https://github.com/kaggle/kaggle-api
-- https://www.kaggle.com/
+```shell
+kaggle datasets list -s endoflife
+```
+
+Finally have some fun around [`Kaggle`](https://www.kaggle.com/):
+
+```shell
+kaggle datasets list -s endoflife
+```
+
+```shell
+kaggle datasets download adriensales/endoflifedate
+file endoflifedate.zip
+unzip endoflifedate.zip
+file endoflife.date.sqlite
+```
