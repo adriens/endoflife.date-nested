@@ -163,16 +163,21 @@ where
     eol not in ("true", "false"); 
 
 alter table eols
-    add eol_boolean;
+    add eol_boolean ineteger;
 
 update eols
-    set eol_boolean = eol
+    set eol_boolean = 1
 where
-    eol in ("true", "false"); 
+    eol = "true"; 
+
+update eols
+    set eol_boolean = 0
+where
+    eol = "false";
 
 -- enrich eols.lts
 alter table eols
-    add lts_date;
+    add lts_date text;
 
 update eols
     set lts_date = lts
@@ -180,16 +185,22 @@ where
     lts not in ("true", "false"); 
 
 alter table eols
-    add lts_boolean;
+    add lts_boolean integer;
 
 update eols
-    set lts_boolean = lts
+    set lts_boolean = 1
 where
-    lts in ("true", "false");
+    lts = "true";
+    
+
+update eols
+    set lts_boolean = 0
+where
+    lts = "false";
 
 -- enrich eols.support
 alter table eols
-    add support_date;
+    add support_date text;
 
 update eols
     set support_date = support
@@ -197,16 +208,21 @@ where
     support not in ("true", "false"); 
 
 alter table eols
-    add support_boolean;
+    add support_boolean integer;
 
 update eols
-    set support_boolean = support
+    set support_boolean = 1
 where
-    support in ("true", "false");
+    support = "true";
+    
+update eols
+    set support_boolean = 0
+where
+    support = "false";
 
 -- enrich eols.extended_suport
 alter table eols
-    add extended_support_date;
+    add extended_support_date text;
 
 update eols
     set extended_support_date = extended_support
@@ -214,22 +230,28 @@ where
     extended_support not in ("true", "false"); 
 
 alter table eols
-    add extended_support_boolean;
+    add extended_support_boolean integer;
 
 update eols
-    set extended_support_boolean = extended_support
+    set extended_support_boolean = 1
 where
-    extended_support in ("true", "false");
+    extended_support = "true";
+    
+
+update eols
+    set extended_support_boolean = 0
+where
+    extended_support = "false";
 
 -- enrich with release_date_year
 alter table eols
-    add release_date_year;
+    add release_date_year text;
 
 update eols
     set release_date_year = strftime('%Y', release_date); 
 
 alter table eols
-    add release_date_year_month;
+    add release_date_year_month text;
 
 
 update eols
