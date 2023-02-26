@@ -509,5 +509,6 @@ kaggle datasets list -s endoflife
 kaggle datasets download adriensales/endoflifedate
 file endoflifedate.zip
 unzip endoflifedate.zip
+ls -la endoflife.date.sqlite
 file endoflife.date.sqlite
 ```
