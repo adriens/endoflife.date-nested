@@ -136,7 +136,8 @@ where
     product='sqlite';
 
 -- Add a metadata table
-create table metadatas(
+drop table if exists metadatas;
+create table metadatas (
     key text not null PRIMARY KEY,
     value text not null
 );
