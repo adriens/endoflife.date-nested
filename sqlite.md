@@ -457,8 +457,16 @@ exit
 
 Then check what the file looks like:
 
-```
+```shell
 file endoflife_eols.parquet
+
+```
+
+Or take a look at datas with [`tad`](https://github.com/antonycourtney/tad):
+
+
+```shell
+tad endoflife_eols.parquet
 
 ```
 
