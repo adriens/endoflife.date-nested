@@ -359,7 +359,7 @@ brew install duckdb
 
 Then:
 
-``shell
+```shell
 duckdb --version
 duckdb --help
 
